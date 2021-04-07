@@ -34,6 +34,7 @@ module UTF8Cleaner
     def sanitize_env_keys(env)
       SANITIZE_ENV_KEYS.each do |key|
         next unless value = env[key]
+        Rails.logger.info("GEO: cleaning env[key]: #{env[key].inspect} | #{value} -> #{cleaned_string(value}}")
         env[key] = cleaned_string(value)
       end
     end
