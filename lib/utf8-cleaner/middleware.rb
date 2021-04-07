@@ -35,7 +35,7 @@ module UTF8Cleaner
       SANITIZE_ENV_KEYS.each do |key|
         next unless value = env[key]
         if env['REQUEST_URI'].include?('form')
-          Rails.logger.info("GEO: cleaning env[key] #{env[key]}: #{env[key].inspect} | #{value} -> #{cleaned_string(value)}")
+          Rails.logger.info("GEO: cleaning env[key] #{key}: #{env[key].inspect} | #{value} -> #{cleaned_string(value)}")
         end
         env[key] = cleaned_string(value)
       end
